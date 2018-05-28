@@ -71,15 +71,17 @@ Where to pwn: ssh fd@pwnable.kr -p2222 (pw:guest)
 4. 
 * Multiple ways to do it. Store the string **LETMEWIN** in a file, then pass an argument such that fd = file descriptor of that file.  We should know the file descriptor before hand to pass the correct argument. This can be guessed, and we can get the guess right also. 
 	
-* But there is a constraint. **You cannot create a file**. Try creating a file and see what you get.
+* One method is, create a file with **LETMEWIN** text it. Then read it. But this is not the simplest method. 
 	
-* The only  method is, pass an argument such that file descriptor = 0, so that we can enter the string **LETMEWIN** and get the flag. 
+* The easiest method is, pass an argument such that file descriptor = 0, so that we can enter the string **LETMEWIN** and get the flag. 
 	
 * fd = atoi(argv[1]) - 0x1234. So, to make fd = 0, we have to pass 0x1234 as the argument. 
 
 * 0x1234 = 4660 in decimal. Pass it as argument and **GAME OVER!**.
 
 ![got the flag](./images/got_the_flag.png)
+
+#### FLAG: mommy! I think I know what a file descriptor is!!
 
 
 **PS**: There are a few important concepts involved in this problem. 
