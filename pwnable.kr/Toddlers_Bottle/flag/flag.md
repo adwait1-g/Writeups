@@ -3,14 +3,16 @@
 #### Question: 
 
 >Papa brought me a packed present! let's open it.
+
 >Download : http://pwnable.kr/bin/flag
+
 >This is reversing task. all you need is binary
 
 
 ### How did I pwn it?
 [Link to **flag** binary](./code_samples/flag)
 
-1. For this question, there is no source code given. We have to rely upon the binary.
+1. For this question, there is no source code given. We have to completely rely upon the binary for all details.
 
 2. The first thing to do when you have a new **binary** is , to use the **file** command and see it's details. 
 ![file flag](./images/file_flag.png)
@@ -98,20 +100,20 @@
 
 ### FLAG: UPX...? sounds like a delivery service :)
 -----------
-I was almost done with the writeup, when I got this idea to find the flag .
+I was almost done with the writeup, when I got a quick hacky idea to find the flag .
 
 1. The output of the executable told, **I will malloc() and strcpy the flag there. take it.** 
 	
 	* This simply means, the flag we want is also a string in the executable. By this method, we have to get the flag if we search through [this](./code_samples/flag.unpacked.strings) file. 
 	
-	* I was more motivated to find the flag using this method because, any constant strings stored in the executables, they will be stored very close to the **top** of the text segment and I wont have to run it using gdb :P . So, high chances that I would find the **flag** at the very beginning of my search in that file.
+	* I was more motivated to find the flag using this method because, any constant strings stored by programmers in the executables, they will be stored very close to the **top** of the executable(They will be stored in .rodata segment, which is placed close to top of executable) and I wont have to run it using gdb :P . So, high chances that I would find the **flag** at the very beginning of my search in that file.
 	
 	* Take a look at this image.
 ![method_2](./images/method_2.png)
 
 	* As guessed,  it was the **first** string in the set of **meaningful strings**. 
 	
-	* These types of methods do not work in every question. This was just a quick hacky way to solve it , without doing much work.
+**NOTE**: These types of methods do not work in every question. 
 
 --------------
 **PS**: 
@@ -129,7 +131,7 @@ I was almost done with the writeup, when I got this idea to find the flag .
 
 *	Generally, any packing tool while packing will embed **run-time** unpacking code, which is run first, to unpack the executable at runtime and then normal executable takes place once unpacking is done.
 
-* Packing is one of the many code-hiding methods. Code-hiding is generally known as **Obfuscating** / **Obfuscation**. 
+* Packing is one of the many code-hiding methods. Code-hiding is generally known as **Obfuscation**. 
 
 * **UPX** is a very popular packing / unpacking tool, which is in use since the late 1990s. It has been used by malware authors to thwart(make it hard) the analysis.
 
@@ -151,6 +153,6 @@ I was almost done with the writeup, when I got this idea to find the flag .
 
 	* **objdump** is a very handly tool to disassembly binaries. But it is not a **powerful** one. It might **fail** when the binaries are too huge to process. 
 	
-	* In such cases, use powerful disassemblers like **ida**, **radare2**. My personal favorite is radare2. It is not only a powerful disassembler, but much more.
+	* In such cases, use powerful disassemblers like **ida**, **radare2**. My personal favorite is radare2. It is not only a powerful disassembler, but also has a decompiler, supports many formats and more.
 
 
