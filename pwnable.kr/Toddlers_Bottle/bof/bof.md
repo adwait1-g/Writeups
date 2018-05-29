@@ -177,6 +177,6 @@ Running at : nc pwnable.kr 9000
 2. First, when I input the payload without **cat**, there was no sign of a shell being spawned. On my local machine, I replaced **system("/bin/sh") with many other commands like system("**ls**"), system("**clear**"). They all were executed and segfault occured.
 
 3. I thought I was not able to get a shell because i felt there is some propety of **stack cookie** I did not know. So, I searched for the official research paper and read it. Amazing technique to stop stack smashes.
-[Link to the paper](ftp://gcc.gnu.org/pub/gcc/summit/2003/Stackguard.pdf)
+[Link to the paper](https://github.com/adwait1-G/Malware-Analysis/blob/master/Resources/memory_corruption_vulnerabilities/Stackguard.pdf)
 
 
