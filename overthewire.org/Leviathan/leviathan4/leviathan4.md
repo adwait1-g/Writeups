@@ -1,4 +1,4 @@
-﻿## Level5: leviathan5
+﻿## Level4: leviathan4
 
 Objective: Find the password to enter level5 **leviathan5**.
 
