@@ -49,12 +49,10 @@ How did I capture the flag?
 		Foremost finished at Fri Jul 20 10:38:48 2018
 
 * It tells that there are 2 **png** files. Let us see what the 2 file have.
-
-5. 
 		
-	output/png$ ls
-	00000000.png  00000299.png
-	output/png$
+		output/png$ ls
+		00000000.png  00000299.png
+		output/png$
 
 6.  Here you go, the flag is in **00000299.png** . 
 ![capture the flag](./output/png/00000299.png)
