@@ -79,8 +79,8 @@ begin:
 * This could possibly be some operation on large numbers that are stored as strings. 
 * This is the C function f() which does the **same job** as the given assembly code but does not give the same assembly code when compiled. 
 
-	unsigned long int f(char *num, char *quotient, unsigned long int divisor, unsigned long int num_len) {
-
+		unsigned long int f(char *num, char *quotient, unsigned long int divisor, unsigned long int num_len) {
+		
 		char number[8], quo[8];
 		unsigned long int q, rem;
 
